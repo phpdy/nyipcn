@@ -1,0 +1,133 @@
+@CHARSET "UTF-8";
+body, ul, ol, h1, h2, form, td, th {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+body {
+	font:small/normal arial;
+	font-size:small;
+	text-align:center;
+}
+a {
+	color:#0052CC;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+#wrapper {
+	width:980px;
+	margin:auto;
+	text-align:left;
+}
+#header {
+	height:70px;
+	width:100%;
+	overflow:hidden;
+	
+}
+.topbar {
+	position:absolute;
+	right:0;
+	top:5px;
+	color:#999999;
+	
+}
+.topbar a{color:#999;margin:0 10px;}
+.logo {
+	width:190px;
+	height:49px;
+	float:left;
+	background:url(../images/logo.jpg) no-repeat left -5px;
+	overflow:hidden;
+	margin:17px 10px 0 0;
+}
+.headline {
+	width:175px;
+	float:left;
+	margin-top:3px;
+	padding:6px 0 6px 13px;
+	border-left:1px solid #DADADA;
+}
+#navbox {
+	margin-bottom:15px;
+	position:relative;
+	border-bottom:5px solid #184C7E;
+	height:66px;
+	width:100%;
+}
+.mainnav {
+	float:left;
+	position:absolute;
+	bottom:0;
+	left:200px;
+	
+}
+.mainnav li {
+	float:left;
+	margin:0px 4px 0 0;
+	width:80px;
+	line-height:30px;
+	text-align:center;
+	font-size:14px;
+	background:#75BAFB url(../images/lion.jpg) no-repeat;
+	color:#fff;
+	font-weight:bold;
+	
+}
+.mainnav li a {
+	display:block;
+	height:30px;
+	color:#676765;
+	background:#F4F4F4 url(../images/lioff.jpg) no-repeat;
+	font-weight:normal;
+}
+.account {
+	color:#ccc;
+	position:absolute;
+	right:19px;
+	bottom:5px;
+}
+.account strong {
+	font-weight:normal;
+	color:#333;
+}
+.subnav {
+	height:20px;
+	color:#C0DEF9;
+	background-color:#3188DA;
+}
+.subnav a {
+	color:#fff;
+	margin:0 20px;
+}
+.subnav a.cur {
+	color:#FAEC04;
+}
+#footer {
+	text-align:center;
+	line-height:20px;
+	padding:13px 0;
+	clear:both;
+	color:#999999;
+	background:url(../images/footerbg.jpg) repeat-x;
+	margin:10px 0 0 0;
+}
+#footer a {
+	color:#343434;
+}
+#footer a.b {
+	color:#999999;
+}
+.disclaimer {
+	color:#000 !important;
+}
+.more1 {
+	float:right;
+	font-size:small;
+}	
+.holder1 {
+	border:1px solid #D8DFE5;
+	margin-bottom:8px;
+}
