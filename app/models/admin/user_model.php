@@ -2,6 +2,8 @@
 
 class user_model extends BaseModel {
 	protected $dbIndex = 'admin';
+	protected $dbtable = "mgt_user" ;
+	protected $items = array('name','password','username','email','registdate','modifydate');
 	
 	/**
 	 * 用户登录

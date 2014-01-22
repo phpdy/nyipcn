@@ -13,6 +13,12 @@ class main_index extends BaseController {
 			$this->view->display('index.php') ;
 			die();
 		}
+		$data = array(
+			'name'=>'admin',
+			'password'=>'123',
+		);
+		$user = $this->model->query($data) ;
+		print_r($user) ;
 		$this->view->display('login.php');
 	}
 	
