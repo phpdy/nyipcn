@@ -1,13 +1,30 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>系统管理后台</title>
-</head>
-<frameset id="mainfrm" name="f2" rows="62,*"  frameborder="no" border="0" framespacing="0">
-	<frame src="?action=top" name="top" scrolling="no" noresize="noresize" class="left" />
-	<frameset id="frame-body" name="f3" rows="*" cols="180,*" frameborder="no" border="0" framespacing="0">
-		<frame src="?action=showLeft" name="left" scrolling="auto" noresize="noresize" >
-		<frame src="?action=showRight" name="main" scrolling="auto" noresize="noresize" />
-	</frameset>
-</frameset>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>首页</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/styles.css" rel="stylesheet" type="text/css" />
 
+</head>
+<body>
+<div id="wrapper">
+<?php include 'common/title.php';?>
+	<div id="content2">
+		<div id="left" style="overflow:auto">
+		<div class="subnavc" >
+			<h2>开发文档分类</h2>
+		
+				left
+		</div>
+		</div>
+		
+		<div id="right">
+		right
+		</div>
+	</div>
+	
+<?php include 'common/footer.php';?>
+</div>
+</body>
+</html>

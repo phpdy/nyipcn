@@ -18,7 +18,7 @@ class main_index extends BaseController {
 			'password'=>'123',
 		);
 		$user = $this->model->query($data) ;
-		print_r($user) ;
+//		print_r($user) ;
 		$this->view->display('login.php');
 	}
 	
