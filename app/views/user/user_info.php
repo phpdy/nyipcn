@@ -10,7 +10,12 @@ include './comm/title.php';
 
 <!--main begin-->
 <div class="main">
-	<div class="apply_main">
+<?php
+include './comm/user_left.php';
+?>
+
+	<div class="rmain">
+	<div class="jpk">
     <form name="myForm" method="post" action="">
       <div class="apply_sheet">
       	<input type="hidden" class="sele" name="id" value="<?php echo $user['id']; ?>">
@@ -47,6 +52,7 @@ include './comm/title.php';
         <input type="button" class="btn-img btn-regist" id="infosubmit" value="提交修改" tabindex="5" onclick="return btn()">
       </div>
     </form>
+    </div>
 	</div>
 </div>
 <!--main end-->

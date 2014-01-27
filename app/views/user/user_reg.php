@@ -13,7 +13,7 @@ include './comm/title.php';
 	<div class="apply_main">
 
     <div class="apply_sub">注册信息填写</div>
-    <form name="myForm" method="post" action="">
+    <form name="form" id="form" method="post" action="reg.php?action=regSubmit">
 		<div class="apply_sheet">
         <div class="apply_t1"><b style="color:#F00;">*</b>登&nbsp;陆&nbsp;名：<input type="text" tabindex="3" class="sele" size="20" maxlength="20" name="name" id="name">（登陆用户名，不可修改）</div>
         <div class="apply_t1"><b style="color:#F00;">*</b>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" tabindex="3" class="sele" size="20" maxlength="20" name="password" id="password">（密码长度不少于6位）</div>
@@ -60,7 +60,7 @@ $(function(){
 		
 		$.post("./user.php?action=check",{name:$('#name').val()},function(data){
 			//alert(data) ;
-			if(data==false){
+			if(data==0){
 				alert("用户名已被使用，请重新输入") ;
 				$("#name").val("") ;
 				$("#name").focus() ;
@@ -111,8 +111,9 @@ $(function(){
 			if($("#name").change() || $("#password").change() || $("#repassword").change() || $("#username").change()){
 				return false ;
 			}
-			document.myForm.action="reg.php?action=regSubmit";
-		    document.myForm.submit();
+//			$("#myForm").action="reg.php?action=regSubmit";
+//			$("#myForm").submit();
+			$("#form").submit();
 		    return true;
 		}
 	});

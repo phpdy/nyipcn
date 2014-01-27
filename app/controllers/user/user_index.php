@@ -96,7 +96,7 @@ class user_index extends BaseController {
 		$start = microtime(true)*1000 ;
 		$log = __CLASS__."|".__FUNCTION__ ;
 		
-		$name = $_GET['name'] ;
+		$name = $_POST['name'] ;
 		$result = $this->userinfo_model->query(array('name'=>$name)) ;
 //		print_r($result) ;
 
@@ -105,9 +105,9 @@ class user_index extends BaseController {
 		Log::logBusiness($log) ;
 		
 		if(empty($result) || sizeof($result)==0){
-			echo true ;
+			echo 1 ;
 		} else {
-			echo false ;
+			echo 0 ;
 		}
 	}
 
