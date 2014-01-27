@@ -5,7 +5,6 @@
 	<buildpathentry kind="src" path="app/models"/>
 	<buildpathentry kind="src" path="app/views/admin"/>
 	<buildpathentry kind="src" path="app/views/main"/>
-	<buildpathentry kind="src" path="app/views/mgt"/>
 	<buildpathentry kind="src" path="frame"/>
 	<buildpathentry kind="src" path="lib"/>
 	<buildpathentry kind="src" path="www"/>
