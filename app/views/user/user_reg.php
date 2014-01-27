@@ -66,8 +66,8 @@ $(function(){
 				$("#name").focus() ;
 				return false ;
 			}
-			return true ;
 		});
+		return true ;
 	});
 
 	$("#password").change(function(){
@@ -108,9 +108,17 @@ $(function(){
 
 	$("#registsubmit").click(function(){
 		if(confirm('你确定要提交数据吗？')){
-			if($("#name").change() || $("#password").change() || $("#repassword").change() || $("#username").change()){
+			var name = $('#name').val() ;
+			var repassword = $('#repassword').val() ;
+			var username = $('#username').val() ;
+			if(name=="" || repassword=="" || username=="" ){
+				alert("请填写完整信息") ;
 				return false ;
 			}
+			
+//			alert("ok") ;
+//			alert(document.form.action) ;
+//			document.form.submit();
 //			$("#myForm").action="reg.php?action=regSubmit";
 //			$("#myForm").submit();
 			$("#form").submit();

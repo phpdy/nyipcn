@@ -55,7 +55,7 @@ class user_index extends BaseController {
 		
 		$result = $this->userinfo_model->insert($_POST) ;
 		$url = FinalClass::$_home_url ;
-		if(!$_POST['url']){
+		if(!empty($_POST['url'])){
 			$url = $_POST['url'] ;
 		}
 		header("location:$url") ;
@@ -82,7 +82,7 @@ class user_index extends BaseController {
 		
 		$result = $this->userinfo_model->update($_POST) ;
 		$url = FinalClass::$_home_url ;
-		if(!$_POST['url']){
+		if(!empty($_POST['url'])){
 			$url = $_POST['url'] ;
 		}
 		header("location:$url") ;

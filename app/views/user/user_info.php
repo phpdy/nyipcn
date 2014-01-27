@@ -5,7 +5,7 @@ include './comm/title.php';
 
 <div class="navbg" style="display: block;">
   <div class="navlist"><a href="http://www.newshootedu.com/">首页</a>&nbsp;&nbsp;<img src="/images/nav-breadcrumb.png" border="0" width="6" height="12" align=absmiddle>&nbsp;&nbsp;用户中心&nbsp;&nbsp;<img src="/images/nav-breadcrumb.png" border="0" width="6" height="12" align=absmiddle>&nbsp;&nbsp;用户信息修改</div>
-  <div class="navchannel">用户注册完善</div>
+  <div class="navchannel">用户信息完善</div>
 </div>
 
 <!--main begin-->
@@ -16,10 +16,10 @@ include './comm/user_left.php';
 
 	<div class="rmain">
 	<div class="jpk">
-    <form name="myForm" method="post" action="">
+    <form name="myForm" id="myForm" method="post" action="user.php?action=infoSubmit">
       <div class="apply_sheet">
       	<input type="hidden" class="sele" name="id" value="<?php echo $user['id']; ?>">
-        <div class="apply_t1"><b style="color:#F00;">*</b>用户名（不可修改）：<?php echo $user['name']; ?></div>
+        <div class="apply_t1">用户名（不可修改）：<?php echo $user['name']; ?></div>
         <div class="apply_t1"><b style="color:#F00;">*</b>姓名（请填写真实姓名）：<input type="text" tabindex="3" class="sele" size="20" maxlength="20" name="username" value="<?php echo $user['username']; ?>"></div>
         <div class="apply_t1"><b style="color:#F00;">*</b>性别：
 	        <input type="radio" <?php if(@$user['sex']==1){echo "checked";} ?> id="1" value="1" name="sex"><label for="1">男</label>&nbsp;&nbsp;
@@ -102,12 +102,13 @@ $(function(){
 	
 	$("#infosubmit").click(function(){
 		if(confirm('你确定要提交数据吗？')){
-			if($("#username").change() || $("#paperno").change() || $("#mobile").change() || $("#username").change()){
-				return false ;
+			if($("#username").val()!="" && $("#paperno").val()!="" && $("#mobile").val()!=""){
+				//alert("ok") ;
+				$("#myForm").submit();
+				return true ;
+			} else {
+				alert("请录入完整必填信息");
 			}
-			document.myForm.action="user.php?action=infoSubmit";
-		    document.myForm.submit();
-		    return true;
 		}
 	});
 })
