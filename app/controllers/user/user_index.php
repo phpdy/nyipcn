@@ -25,7 +25,7 @@ class user_index extends BaseController {
 		
 		if(!empty($result) && sizeof($result)==1){
 			$userinfo = $result[0] ;
-			if($password == $userinfo['password']){
+			if(md5($password) == $userinfo['password']){
 				//登陆成功
 				@session_start ();
 				$_SESSION[FinalClass::$_session_user] = $userinfo ;
@@ -53,7 +53,9 @@ class user_index extends BaseController {
 		$start = microtime(true)*1000 ;
 		$log = __CLASS__."|".__FUNCTION__ ;
 		
-		$result = $this->userinfo_model->insert($_POST) ;
+		$data = $_POST ;
+		$data['password'] = md5($data['password']) ;
+		$result = $this->userinfo_model->insert($data) ;
 		$url = FinalClass::$_home_url ;
 		if(!empty($_POST['url'])){
 			$url = $_POST['url'] ;
@@ -69,7 +71,7 @@ class user_index extends BaseController {
 		@session_start ();
 		$user = $_SESSION[FinalClass::$_session_user] ;
 		if(empty($user)){
-			header("location:login.php?url=info.php") ;
+			header("location:login.php?url=user.php") ;
 			die() ;
 		}
 		$user = $this->userinfo_model->queryById($user['id']) ;

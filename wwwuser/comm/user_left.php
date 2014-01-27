@@ -2,7 +2,8 @@
   <div id="lnav">
   <ul class="menu">
 	<li class='current-menu-item'><a href='user.php?action=reg'>用户注册</a></li>
-	<li class='current-menu-item'><a href='user.php?action=info'>用户信息完善</a></li>
+	<li class='current-menu-item'><a href='user.php?action=info'>账号信息</a></li>
+	<li class='current-menu-item'><a href='user.php?action=info'>账号安全</a></li>
   </ul>
   <!--加入我们 begin-->
   <div class="addus">
