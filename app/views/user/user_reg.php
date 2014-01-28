@@ -15,7 +15,7 @@ include './comm/title.php';
     <div class="apply_sub">注册信息填写</div>
     <form name="form" id="form" method="post" action="reg.php?action=regSubmit">
 		<div class="apply_sheet">
-        <div class="apply_t1"><b style="color:#F00;">*</b>登&nbsp;陆&nbsp;名：<input type="text" tabindex="3" class="sele" size="20" maxlength="20" name="name" id="name">（登陆用户名，不可修改）</div>
+        <div class="apply_t1"><b style="color:#F00;">*</b>电子邮箱：<input type="text" tabindex="3" class="sele" size="20" maxlength="20" name="name" id="name">（电子邮箱地址用户的登录名使用）</div>
         <div class="apply_t1"><b style="color:#F00;">*</b>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" tabindex="3" class="sele" size="20" maxlength="20" name="password" id="password">（密码长度不少于6位）</div>
         <div class="apply_t1"><b style="color:#F00;">*</b>确认密码：<input type="password" tabindex="3" class="sele" size="20" maxlength="20" name="repassword" id="repassword"></div>
 		<div class="apply_t1"><b style="color:#F00;">*</b>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：<input type="text" tabindex="3" class="sele" size="20" maxlength="20" name="username" id="username">（请填写真实姓名）</div>
@@ -35,7 +35,7 @@ include './comm/title.php';
         </div>
 		<div class="apply_next">
 	        <input type="hidden" name="url" value="<?php echo $_REQUEST['url'] ;?>">
-	        <input type="reset" name="chongxie" class="btn-img btn-regist" value="重新填写" />&nbsp;&nbsp;<input type="button" class="btn-img btn-regist" id="registsubmit" value="下一步 >" tabindex="5" onclick="return btn()">
+	        <input type="reset" name="chongxie" class="btn-img btn-regist" value="重新填写" />&nbsp;&nbsp;<input type="button" class="btn-img btn-regist" id="registsubmit" value="注册" tabindex="5" onclick="return btn()">
 		</div>
     </form>
 	</div>
@@ -51,11 +51,19 @@ include './comm/title.php';
 $(function(){
 	$("#name").change(function(){
 		var name = $('#name').val() ;
-		if(name.length<5){
-			alert("用户名长度不能少于5位数字或字母。") ;
+		if(name.length==""){
+			alert("请输入用户名，用户名必须邮箱地址。") ;
 			$("#name").val("") ;
 			$("#name").focus() ;
 			return false ;
+		}
+
+		var Regex = /^(?:\w+\.?)*\w+@(?:\w+\.)*\w+$/;　
+		if (!Regex.test(name)) {
+			alert("请输入正确的电子邮件地址！");
+			$("#name").val("") ;
+			$("#name").focus() ;
+			return false;
 		}
 		
 		$.post("./user.php?action=check",{name:$('#name').val()},function(data){

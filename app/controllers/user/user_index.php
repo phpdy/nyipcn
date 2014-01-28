@@ -14,6 +14,9 @@ class user_index extends BaseController {
 	public function loginAction(){
 		$this->view->display('user_login.php');
 	}
+	public function boxAction(){
+		$this->view->display('user_login_box.php');
+	}
 	public function loginSubmitAction(){
 		$start = microtime(true)*1000 ;
 		$log = __CLASS__."|".__FUNCTION__ ;
