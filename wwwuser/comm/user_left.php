@@ -4,6 +4,7 @@
 	<li class='current-menu-item'><a href='user.php?action=reg'>用户注册</a></li>
 	<li class='current-menu-item'><a href='user.php?action=info'>账号信息</a></li>
 	<li class='current-menu-item'><a href='user.php?action=pwd'>账号安全</a></li>
+	<li class='current-menu-item'><a href='pay.php'>在线支付</a></li>
   </ul>
   <!--加入我们 begin-->
   <div class="addus">
