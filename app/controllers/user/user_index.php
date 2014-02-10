@@ -96,6 +96,35 @@ class user_index extends BaseController {
 		$log .= "|".(int)(microtime(true)*1000-$start) ;
 		Log::logBusiness($log) ;
 	}
+	//修改密码
+	public function pwdAction(){
+		@session_start ();
+		$user = $_SESSION[FinalClass::$_session_user] ;
+		if(empty($user)){
+			header("location:login.php?url=user.php?action=pwd") ;
+			die() ;
+		}
+		$this->view->assign('user',$user) ;
+		$this->view->display('user_pwd.php');
+	}
+	public function pwdSubmitAction(){
+		$start = microtime(true)*1000 ;
+		$log = __CLASS__."|".__FUNCTION__ ;
+		
+		$_POST['password'] = md5($_POST['password']) ;
+		$result = $this->userinfo_model->update($_POST) ;
+		echo $result ;
+//		$url = FinalClass::$_home_url ;
+//		if(!empty($_POST['url'])){
+//			$url = $_POST['url'] ;
+//		}
+//		header("location:$url") ;
+		
+		$log .= "|$result|$url" ;
+		$log .= "|".(int)(microtime(true)*1000-$start) ;
+		Log::logBusiness($log) ;
+	}
+	
 	//用户名检验
 	public function checkAction(){
 		$start = microtime(true)*1000 ;
@@ -110,6 +139,27 @@ class user_index extends BaseController {
 		Log::logBusiness($log) ;
 		
 		if(empty($result) || sizeof($result)==0){
+			echo 1 ;
+		} else {
+			echo 0 ;
+		}
+	}
+	//密码检验
+	public function checkpwdAction(){
+		$start = microtime(true)*1000 ;
+		$log = __CLASS__."|".__FUNCTION__ ;
+		
+		$password = md5($_POST['password']) ;
+		
+		@session_start ();
+		$user = $_SESSION[FinalClass::$_session_user] ;
+
+		$log .= "|$password|" ;
+		$log .= "|".(int)(microtime(true)*1000-$start) ;
+		Log::logBusiness($log) ;
+		
+//		echo "$password  ". $user['password'] ;
+		if($password == $user['password']){
 			echo 1 ;
 		} else {
 			echo 0 ;
