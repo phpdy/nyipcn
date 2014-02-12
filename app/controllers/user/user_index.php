@@ -59,6 +59,13 @@ class user_index extends BaseController {
 		$data = $_POST ;
 		$data['password'] = md5($data['password']) ;
 		$result = $this->userinfo_model->insert($data) ;
+		
+		//自动登录
+		$name = $_POST['name'] ;
+		$userlist = $this->userinfo_model->query(array('name'=>$name)) ;
+		@session_start ();
+		$_SESSION[FinalClass::$_session_user] = $userlist[0] ;
+		
 		$url = FinalClass::$_home_url ;
 		if(!empty($_POST['url'])){
 			$url = $_POST['url'] ;
@@ -74,7 +81,7 @@ class user_index extends BaseController {
 		@session_start ();
 		$user = $_SESSION[FinalClass::$_session_user] ;
 		if(empty($user)){
-			header("location:login.php?url=user.php") ;
+			header("location:login.php?url=".$_SERVER['REQUEST_URI']) ;
 			die() ;
 		}
 		$user = $this->userinfo_model->queryById($user['id']) ;
@@ -101,7 +108,7 @@ class user_index extends BaseController {
 		@session_start ();
 		$user = $_SESSION[FinalClass::$_session_user] ;
 		if(empty($user)){
-			header("location:login.php?url=user.php?action=pwd") ;
+			header("location:login.php?url=".$_SERVER['REQUEST_URI']) ;
 			die() ;
 		}
 		$this->view->assign('user',$user) ;

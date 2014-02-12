@@ -17,13 +17,13 @@ include './comm/user_left.php';
 	<div class="rmain">
 	<div class="jpk">
     <form name="myForm" id="myForm" method="post" action="user.php?action=infoSubmit">
-		<div class="apply_sub">3.请选择支付方式</div>
+		<div class="apply_sub">请选择支付方式</div>
     	<div class="apply_desc"><p>欢迎您参加纽摄教育在线学院的学习，提升摄影技艺，开启自己的摄影新航程！你提交报名表之后，可以通过下列方式支付您的学习费用：</p></div>
       	<div class="apply_sheet">
-        	<div class="apply_l"><img src="./images/paycard.gif" width="408" height="252"></div>
-	        <div class="apply_r">
+        	<div><img src="./images/paycard.gif" width="408" height="252"></div>
+	        <div>
 	          <div style="width:470px;margin:0 auto;">
-	            <div style="width:230px;padding:15px 0;text-align:center;float:left"><input type="button" class="btn-img btn-pay" id="registsubmit" value="在线支付" onclick="window.location='apply.php?step=3&orderid=<?=$orderid?>&realname=<?=urlencode($realname);?>&sex=<?=$sex;?>&birthday=<?=$birthday;?>&idcard=<?=$idcard;?>&address=<?=urlencode($address);?>&province=<?=urlencode($province);?>&city=<?=urlencode($city);?>&zipcode=<?=$zipcode;?>&mobile=<?=$mobile;?>&phone=<?=$phone;?>&email=<?=urlencode($email);?>&orderid=<?=$orderid;?>'"></div>
+	            <div style="width:230px;padding:15px 0;text-align:center;float:left"><input type="button" class="btn-img btn-pay" id="registsubmit" value="在线支付" onclick="window.location='pay.php?action=jump&typeid=1'"></div>
 	            <div style="width:230px;padding:15px 0;text-align:center;float:right"><input type="button" class="btn-img btn-pay" id="registsubmit" value="银行汇款" onclick="window.location='http://v.nyipcn.com/clist.php?cid=15&lid=30'"></div>
 	          </div>
 	          <div class="apply_desc"><p>&nbsp;&nbsp;&nbsp;&nbsp;我们在收到您的学习费用之后，会立即与您联系，将电子版《学习手册》及学习卡发送给您。您收到后就可以立即开始您的摄影学习旅程。</p>
