@@ -5,7 +5,7 @@
   
   <?php 
   @session_start ();
-  $userinfo = $_SESSION [FinalClass::$_session_user] ;
+  $userinfo = @$_SESSION [FinalClass::$_session_user] ;
   if(empty($userinfo)){
   	echo '<a href="login.php">[登录]</a> - <a href="reg.php">[免费注册]</a>' ;
   } else {
