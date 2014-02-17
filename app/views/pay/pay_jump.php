@@ -29,6 +29,7 @@ include './comm/user_left.php';
 
 <?php
   include "./comm/footer.php";
+  print_r($_SERVER['SERVER_NAME']) ;
 ?>
 <script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script language="javascript">

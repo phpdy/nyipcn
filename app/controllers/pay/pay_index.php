@@ -35,8 +35,24 @@ class pay_index extends BaseController {
 		}
 		
 		$typeid = $_GET['typeid'] ;
+		$orderid= "NY".time() ;
 		$this->view->assign('typeid',$typeid) ;
 		$this->view->assign('user',$user) ;
+		$this->view->assign('orderid',$orderid) ;
+		
+//		$this->pay_model->insert() ;
+		
+		
+		$this->view->display('pay_jump.php');
+	}
+
+	public function successAction(){
+
+		$typeid = $_GET['typeid'] ;
+		$orderid= "NY".time() ;
+		$this->view->assign('typeid',$typeid) ;
+		$this->view->assign('user',$user) ;
+		$this->view->assign('orderid',$orderid) ;
 		
 //		$this->pay_model->insert() ;
 		
